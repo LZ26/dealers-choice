@@ -7,10 +7,10 @@ const db = require('./db');
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/public', express.static(path.join(__dirname, '/public')));
+// app.use('/public', express.static(path.join(__dirname, '/public')));
 
 app.get('/', (req, res, next) => {
-  res.sendFile(path.join(__dirname, '/public/index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.use('/api', require('./routes/index.js'));
