@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Hero } = require('../db/models/Hero');
-const { Ability } = require('../db/models/Hero');
+const { Ability } = require('../db/models/Ability');
 
 router.get('/heroes', async (req, res, next) => {
   try {
@@ -23,7 +23,9 @@ router.get('/abilities', async (req, res, next) => {
 
 router.get('/heroes/:id', async (req, res, next) => {
   try {
-    const hero = await Hero.findByPk(req.params.id);
+    const hero = await Hero.findByPk(req.params.id, {
+      include: Ability,
+    });
     res.send(hero);
   } catch (err) {
     next(err);

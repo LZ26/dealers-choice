@@ -1,6 +1,6 @@
 const db = require('../db');
 const Sequelize = require('sequelize');
-const { STRING } = Sequelize;
+const { STRING, TEXT } = Sequelize;
 
 const Hero = db.define('hero', {
   name: {
@@ -8,12 +8,19 @@ const Hero = db.define('hero', {
     allowNull: false,
   },
 
+  bio: {
+    type: TEXT,
+  },
+
   attribute: {
+    type: STRING,
+  },
+
+  pictureUrl: {
     type: STRING,
   },
 });
 
 module.exports = {
-  db,
   Hero,
 };

@@ -20,6 +20,5 @@ const Ability = db.define('ability', {
   },
 });
 module.exports = {
-  db,
   Ability,
 };
